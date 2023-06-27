@@ -1,6 +1,6 @@
 # Docker - Backup to S3
 
-Most parts are copied from [this repository](https://github.com/peterrus/docker-s3-cron-backup) but needed some smaller modifications for my own purposes, so the use of other S3-Endpoints are full functional, so i can work with Wasabi.
+Most parts are copied from [this repository](https://github.com/peterrus/docker-s3-cron-backup) but needed some smaller modifications for my own purposes, so the use of other S3-Endpoints are full functional, so i can work with Wasabi and have timezone support.
 
 ### Configuration / Guide
 

@@ -2,7 +2,7 @@ version: "2"
 
 services:
   backup:
-    build: .
+    image: ghcr.io/cloudmaker97/docker-cron-backup:main
     env_file:
       - .env.example
     volumes:
