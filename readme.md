@@ -2,8 +2,16 @@
 
 Most parts are copied from [this repository](https://github.com/peterrus/docker-s3-cron-backup) but needed some smaller modifications for my own purposes, so the use of other S3-Endpoints are full functional, so i can work with Wasabi.
 
+### Configuration / Guide
+
+1. Create the `docker-compose.yml` file and edit the directory mount under `volumes`
+2. Create the `.env` file (see `.env.example`) and edit it to your needs
+3. Run `docker compose up -d` and wait for the next cron interval
+
 ### Environment Variables
 
+- `TZ`
+	- e.g. `Europe/Berlin` for the system timezone
 - `AWS_ACCESS_KEY`
 	- Get this one from your S3 Console
 - `AWS_SECRET_ACCESS_KEY`
@@ -21,24 +29,3 @@ Most parts are copied from [this repository](https://github.com/peterrus/docker-
 	- e.g. `my-project`
 - `S3_STORAGE_CLASS`
 	- Default: `STANDARD`
-
-### Using Docker-Compose
-
-```
-backup:
-	build .
-	environment:
-	  - AWS_ACCESS_KEY_ID=
-	  - AWS_SECRET_ACCESS_KEY=
-	  - S3_BUCKET_URL=s3://backup_bucket
-	  - AWS_DEFAULT_REGION=eu-central-2
-	  - S3_ENDPOINT=https://s3.eu-central-2.wasabisys.com
-	  - CRON_SCHEDULE=0 * * * *
-	  - BACKUP_NAME=root_folder
-	volumes:
-	  # First: Your volume or directory (e.g. /root)
-	  # Second: This is the folder, where the folder (above) will be mounted
-	  # Last: Read-Only flag, so this container can't touch anything
-	  - /root:/data:ro
-	restart: always
-```

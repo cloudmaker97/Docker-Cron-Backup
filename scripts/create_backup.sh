@@ -16,7 +16,7 @@ else
 fi
 
 echo "Info: Start compression of the targeted folder: ${TARGET}"
-tar -zcvf $FILE_NAME $TARGET
+tar -zcf $FILE_NAME $TARGET
 echo "Info: Start file upload to the S3 storage as: ${FILE_NAME} (${S3_STORAGE_CLASS})"
 aws s3 $AWS_ARGS cp --storage-class $S3_STORAGE_CLASS $FILE_NAME $S3_BUCKET_URL
 echo "Info: File upload completed, deleting the uploaded file from filesystem"
