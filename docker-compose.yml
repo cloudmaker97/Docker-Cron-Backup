@@ -6,5 +6,5 @@ backup:
     # First: Your volume or directory (e.g. /root)
     # Second: This is the folder, where the folder (above) will be mounted
     # Last: Read-Only flag, so this container can't touch anything
-    - /root:/data:ro
+    - ${BACKUP_PATH}:/data:ro
   restart: always

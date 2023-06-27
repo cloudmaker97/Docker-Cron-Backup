@@ -24,7 +24,7 @@ Most parts are copied from [this repository](https://github.com/peterrus/docker-
 
 ### Using Docker-Compose
 
-```yaml
+```
 backup:
 	build .
 	environment:
